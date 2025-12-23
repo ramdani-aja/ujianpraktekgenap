@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		let kaos = 30000;
+		let kemeja = 50000;
+		let jaket = 75000;
+		let hoodie = 100000;
+
+    let jumlahTransaksi = Number(prompt("Masukkan jumlah transaksi pembelian:"));
+
+    for (let i = 1; i <= jumlahTransaksi; i++) {
+        console.log(`Pembeli ke-${i}`);
+
+        let sesiPembeli = prompt("Masukkan sesi pembelian: pagi / siang / malam");
+        let jenisBaju = prompt("Masukkan jenis baju: kaos / kemeja / jaket / hoodie");
+        let hargaSatuan = Number(prompt("Masukkan harga baju:"));
+        let jumlahBaju = Number(prompt("Masukkan jumlah baju:"));
+
+        let totalTransaksi = hargaSatuan * jumlahBaju;
+        let diskon = 0;
+
+        if (sesiPembeli === "pagi") {
+            if (jumlahBaju > 20) {
+                diskon = totalTransaksi * 0.20;
+            } else if (jumlahBaju > 10) {
+                diskon = totalTransaksi * 0.10;
+            }
+        } 
+        else if (sesiPembeli === "malam") {
+            if (jumlahBaju > 20) {
+                diskon = totalTransaksi * 0.25;
+            } else if (jumlahBaju > 10) {
+                diskon = totalTransaksi * 0.15;
+            }
+        } 
+		else if (sesiPembeli === "siang") {
+			diskon = 0;
+		}
+
+        let totalBayar = totalTransaksi - diskon;
+
+        console.log("Jenis baju:", jenisBaju);
+        console.log("Harga satuan:", hargaSatuan);
+        console.log("Jumlah baju:", jumlahBaju);
+        console.log("Sesi:", sesiPembeli);
+        console.log("Total harga:", totalTransaksi);
+        console.log("Diskon:", diskon);
+        console.log("Total bayar:", totalBayar);
+        console.log("=======================");
+    }
+</script>
+
+</body>
+</html>
